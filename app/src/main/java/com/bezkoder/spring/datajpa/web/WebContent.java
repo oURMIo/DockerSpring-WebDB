@@ -26,7 +26,8 @@ public class WebContent {
         return "Create and add user with name - " + name;
     }
 
-    @GetMapping("/delete/{id}")
+    /*  DON'T WORK  */
+    @GetMapping("/deleteid/{id}")
     public String indexDeleteById(@PathVariable Long aId) {
         for (User user : users.findAll()) {
             if (aId.equals(user.getId())) {
@@ -40,7 +41,7 @@ public class WebContent {
         return "You made a mistake with the id ";
     }
 
-    @GetMapping("/delete/name/{name}")
+    @GetMapping("/deletename/{name}")
     public String indexDeleteByName(@PathVariable String name) {
         for (User user : users.findAll()) {
             if (name.equals(user.getName())) {
