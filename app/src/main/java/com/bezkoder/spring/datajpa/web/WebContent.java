@@ -71,6 +71,12 @@ public class WebContent {
                 + users.findAll();
     }
 
+/*    @GetMapping("/showall")
+    public String indexForAll2() {
+        return "   ALL USERS   - "
+                + users.writeAll();
+    }*/
+
     @RequestMapping("*")
     public String indexAll() {
         return "WORKING!!!";
