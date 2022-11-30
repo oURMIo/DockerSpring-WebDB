@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="app" />
         <module name="spring-boot-data-jpa" />
         <module name="bezkoder-app" />
       </profile>
@@ -13,6 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app" options="-parameters" />
       <module name="bezkoder-app" options="-parameters" />
       <module name="spring-boot-data-jpa" options="-parameters" />
     </option>
