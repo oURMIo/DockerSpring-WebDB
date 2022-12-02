@@ -38,23 +38,6 @@ public class WebContent {
         user.setName(name);
         users.save(user);
         id++;
-
-        /*  Create doc  */
-        Document document = new Document();
-        Section section = document.addSection();
-        Paragraph subheading_1 = section.addParagraph();
-        subheading_1.appendText("List all users -");
-        Paragraph para_1 = section.addParagraph();
-        para_1.appendText(users.findAll().toString());
-        subheading_1.applyStyle(BuiltinStyle.Heading_3);
-        ParagraphStyle style = new ParagraphStyle(document);
-        style.setName("paraStyle");
-        style.getCharacterFormat().setFontName("Arial");
-        style.getCharacterFormat().setFontSize(11f);
-        document.getStyles().add(style);
-        para_1.applyStyle("paraStyle");
-        document.saveToFile(context.getRealPath(filePath), FileFormat.Docx);
-
         return "Create and add user with name - " + name;
     }
 
@@ -106,6 +89,22 @@ public class WebContent {
     /*"/file/listUsers.docx"*/
     @RequestMapping(value = "/listUsers.docx", method = RequestMethod.GET)
     public ResponseEntity<Object> indexExport() {
+        /*  Create doc  */
+        Document document = new Document();
+        Section section = document.addSection();
+        Paragraph subheading_1 = section.addParagraph();
+        subheading_1.appendText("List all users -");
+        Paragraph para_1 = section.addParagraph();
+        para_1.appendText(users.findAll().toString());
+        subheading_1.applyStyle(BuiltinStyle.Heading_3);
+        ParagraphStyle style = new ParagraphStyle(document);
+        style.setName("paraStyle");
+        style.getCharacterFormat().setFontName("Arial");
+        style.getCharacterFormat().setFontSize(11f);
+        document.getStyles().add(style);
+        para_1.applyStyle("paraStyle");
+        document.saveToFile(context.getRealPath(filePath), FileFormat.Docx);
+
         InputStream inputStream = context.getResourceAsStream(filePath);
         assert inputStream != null;
         return ResponseEntity.ok()
