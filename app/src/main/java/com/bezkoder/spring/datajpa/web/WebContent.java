@@ -13,16 +13,23 @@ import com.spire.doc.Section;
 import com.spire.doc.documents.BuiltinStyle;
 import com.spire.doc.documents.Paragraph;
 import com.spire.doc.documents.ParagraphStyle;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
+import javax.servlet.ServletContext;
+import java.io.File;
 
 
 @RestController
 public class WebContent {
     private long id = 0;
+    protected String filePath = "./listUsers.docx";
 
     @Autowired
     UseForUser users;
+
+    @Autowired
+    ServletContext context;
 
     @GetMapping("/create/{name}")
     public String indexAdd(@PathVariable String name) {
@@ -46,7 +53,7 @@ public class WebContent {
         style.getCharacterFormat().setFontSize(11f);
         document.getStyles().add(style);
         para_1.applyStyle("paraStyle");
-        document.saveToFile("./src/main/resources/file/listUsers.docx", FileFormat.Docx);
+        document.saveToFile(context.getRealPath(filePath), FileFormat.Docx);
 
         return "Create and add user with name - " + name;
     }
@@ -97,10 +104,9 @@ public class WebContent {
     }
 
     /*"/file/listUsers.docx"*/
-    @GetMapping(value = "/listUsers.docx")
-    @ResponseBody
-    public ResponseEntity<InputStreamResource> indexExport() {
-        InputStream inputStream = getClass().getResourceAsStream("/file/listUsers.docx");
+    @RequestMapping(value = "/listUsers.docx", method = RequestMethod.GET)
+    public ResponseEntity<Object> indexExport() {
+        InputStream inputStream = context.getResourceAsStream(filePath);
         assert inputStream != null;
         return ResponseEntity.ok()
                 .contentType(MediaType.valueOf(MediaType.APPLICATION_OCTET_STREAM_VALUE))
@@ -112,3 +118,4 @@ public class WebContent {
         return "WORKING!!!";
     }
 }
+
