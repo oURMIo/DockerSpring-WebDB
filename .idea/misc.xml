@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.pom" />
+        <option value="$PROJECT_DIR$/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom" />
+        <option value="$PROJECT_DIR$/app/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>
